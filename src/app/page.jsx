@@ -47,85 +47,77 @@ const birthdays = [
   },
 ];
 
-// const BirthdayList = () => {
-//   const [birthdayList, setBirthdayList] = useState(birthdays);
-//   const clearList = () => {
-//     setBirthdayList([]);
-//   };
-//   return (
-//     <div className="p-10 bg-white">
-//       <h1 className="text-3xl font-semibold mb-8">Birthday Today</h1>
-//       <div className="flex flex-col gap-4">
-//         {birthdayList.map(({ id, name, age, image }) => (
-//           <BirthdayListItem key={id} name={name} age={age} image={image} />
-//         ))}
-//       </div>
-//       <button
-//         onClick={clearList}
-//         className="bg-pink-300 text-white w-full p-3 font-semibold text-xl cursor-pointer"
-//       >
-//         Clear All
-//       </button>
-//     </div>
-//   );
-// };
-
-// const BirthdayListItem = ({ name, age, image }) => {
-//   return (
-//     <div className="flex gap-4 items-center w-134">
-//       <img className="w-20 h-20 rounded-full" src={image} alt="profile" />
-//       <div>
-//         <h2 className="text-2xl font-bold">{name}</h2>
-//         <p className="text-gray-500">{age}</p>
-//       </div>
-//     </div>
-//   );
-// };
-
 const BirthdayList = () => {
   const [birthdayList, setBirthdayList] = useState(birthdays);
   const clearList = () => {
-    return setBirthdayList([]);
-  };
-  const dahinEhluuleh = () => {
-    return setBirthdayList(birthdays);
+    setBirthdayList([]);
   };
   return (
-    <div>
-      {birthdayList.map(({ id, name, image, age }) => (
-        <BirthdayListItem
-          key={id}
-          id={id}
-          name={name}
-          image={image}
-          age={age}
-          clearList={clearList}
-          dahinEhluuleh={dahinEhluuleh}
-        />
-      ))}
-      {birthdayList.length === 0 && (
-        <p>Jagsaalt hooson bna. refresh darna uu</p>
-      )}
-      <button onClick={dahinEhluuleh}>refresh</button>
+    <div className="p-10 bg-white">
+      <h1 className="text-3xl font-semibold mb-8">Birthday Today</h1>
+      <div className="flex flex-col gap-4">
+        {birthdayList.map(({ id, name, age, image }) => (
+          <BirthdayListItem key={id} name={name} age={age} image={image} />
+        ))}
+      </div>
+      <button
+        onClick={clearList}
+        className="bg-pink-300 text-white w-full p-3 font-semibold text-xl cursor-pointer"
+      >
+        Clear All
+      </button>
     </div>
   );
 };
 
-const BirthdayListItem = ({
-  id,
-  name,
-  image,
-  age,
-  clearList,
-  dahinEhluuleh,
-}) => {
+const BirthdayListItem = ({ name, age, image }) => {
   return (
-    <div>
-      <img className="w-[150px] h-[150px]" src={image} alt="profile" />
-      <h1>{name}</h1>
-      <p>{age}</p>
-      <button onClick={clearList}>all clear</button>
-      <div></div>
+    <div className="flex gap-4 items-center w-134">
+      <img className="w-20 h-20 rounded-full" src={image} alt="profile" />
+      <div>
+        <h2 className="text-2xl font-bold">{name}</h2>
+        <p className="text-gray-500">{age}</p>
+      </div>
     </div>
   );
 };
+
+// const BirthdayList = () => {
+//   const [birthdayList, setBirthdayList] = useState(birthdays);
+//   const clearList = () => {
+//     return setBirthdayList([]);
+//   };
+//   const dahinEhluuleh = () => {
+//     return setBirthdayList(birthdays);
+//   };
+//   return (
+//     <div>
+//       {birthdayList.map(({ id, name, image, age }) => (
+//         <BirthdayListItem
+//           key={id}
+//           id={id}
+//           name={name}
+//           image={image}
+//           age={age}
+//           clearList={clearList}
+//           dahinEhluuleh={dahinEhluuleh}
+//         />
+//       ))}
+//       {birthdayList.length === 0 && (
+//         <p>Jagsaalt hooson bna. refresh darna uu</p>
+//       )}
+//       <button onClick={dahinEhluuleh}>refresh</button>
+//     </div>
+//   );
+// };
+
+// const BirthdayListItem = ({ id, name, image, age, clearList }) => {
+//   return (
+//     <div>
+//       <img className="w-[150px] h-[150px]" src={image} alt="profile" />
+//       <h1>{name}</h1>
+//       <p>{age}</p>
+//       <button onClick={clearList}>all clear</button>
+//     </div>
+//   );
+// };
