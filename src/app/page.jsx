@@ -84,16 +84,14 @@ const birthdays = [
 
 const BirthdayList = () => {
   const [birthdayList, setBirthdayList] = useState(birthdays);
-  return birthdayList.map((id, name, image, age) => {
-    {
-      <BirthdayListItem key={id} id={id} image={image} name={name} age={age} />;
-    }
-  });
+  return birthdayList.map(({ id, name, image, age }) => (
+    <BirthdayListItem key={id} id={id} image={image} name={name} age={age} />
+  ));
 };
 
 const BirthdayListItem = ({ id, name, age, image }) => {
   return (
-    <div>
+    <div className="flex flex-col">
       <img src={image} alt="frofile" />
       <h1>{name}</h1>
       <p>{age}</p>
