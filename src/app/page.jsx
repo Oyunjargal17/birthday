@@ -88,7 +88,7 @@ const BirthdayList = () => {
     return setBirthdayList([]);
   };
   const dahinEhluuleh = () => {
-    return setBirthdayList([birthdays]);
+    return setBirthdayList(birthdays);
   };
   return (
     <div>
@@ -103,12 +103,15 @@ const BirthdayList = () => {
           dahinEhluuleh={dahinEhluuleh}
         />
       ))}
+      {birthdayList.length === 0 && (
+        <p>Jagsaalt hooson bna. refresh darna uu</p>
+      )}
+      <button onClick={dahinEhluuleh}>refresh</button>
     </div>
   );
 };
 
 const BirthdayListItem = ({
-  key,
   id,
   name,
   image,
@@ -122,9 +125,7 @@ const BirthdayListItem = ({
       <h1>{name}</h1>
       <p>{age}</p>
       <button onClick={clearList}>all clear</button>
-      <div>
-        <button onClick={dahinEhluuleh}>refresh</button>
-      </div>
+      <div></div>
     </div>
   );
 };
