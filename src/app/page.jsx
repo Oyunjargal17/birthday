@@ -84,9 +84,23 @@ const birthdays = [
 
 const BirthdayList = () => {
   const [birthdayList, setBirthdayList] = useState(birthdays);
-  return birthdayList.map(({ id, name, image, age }) => (
-    <BirthdayListItem key={id} id={id} image={image} name={name} age={age} />
-  ));
+  const clearList = () => {
+    setBirthdayList([]);
+  };
+  return (
+    <div>
+      {birthdayList.map(({ id, name, image, age }) => (
+        <BirthdayListItem
+          key={id}
+          id={id}
+          image={image}
+          name={name}
+          age={age}
+        />
+      ))}
+      <button onClick={clearList}>all delete</button>
+    </div>
+  );
 };
 
 const BirthdayListItem = ({ id, name, age, image }) => {
