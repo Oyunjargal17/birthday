@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+
 export default function Home() {
   return (
     <div className="bg-pink-100 h-screen flex justify-center items-center">
@@ -8,7 +9,7 @@ export default function Home() {
     </div>
   );
 }
-const birthday = [
+const birthdays = [
   {
     id: 1,
     name: "Bertie Yates",
@@ -46,37 +47,56 @@ const birthday = [
   },
 ];
 
+// const BirthdayList = () => {
+//   const [birthdayList, setBirthdayList] = useState(birthday);
+//   const clearList = () => {
+//     setBirthdayList([]);
+//   };
+//   return (
+//     <div className="p-10 bg-white">
+//       <h1 className="text-3xl font-semibold mb-8">Birthday Today</h1>
+//       <div className="flex flex-col gap-4">
+//         {birthdayList.map(({ id, name, age, image }) => (
+//           <BirthdayListItem key={id} name={name} age={age} image={image} />
+//         ))}
+//       </div>
+//       <button
+//         onClick={clearList}
+//         className="bg-pink-300 text-white w-full p-3 font-semibold text-xl cursor-pointer"
+//       >
+//         Clear All
+//       </button>
+//     </div>
+//   );
+// };
+
+// const BirthdayListItem = ({ name, age, image }) => {
+//   return (
+//     <div className="flex gap-4 items-center w-134">
+//       <img className="w-20 h-20 rounded-full" src={image} alt="profile" />
+//       <div>
+//         <h2 className="text-2xl font-bold">{name}</h2>
+//         <p className="text-gray-500">{age}</p>
+//       </div>
+//     </div>
+//   );
+// };
+
 const BirthdayList = () => {
-  const [birthdayList, setBirthdayList] = useState(birthday);
-  const clearList = () => {
-    setBirthdayList([]);
-  };
-  return (
-    <div className="p-10 bg-white">
-      <h1 className="text-3xl font-semibold mb-8">Birthday Today</h1>
-      <div className="flex flex-col gap-4">
-        {birthdayList.map(({ id, name, age, image }) => (
-          <BirthdayListItem key={id} name={name} age={age} image={image} />
-        ))}
-      </div>
-      <button
-        onClick={clearList}
-        className="bg-pink-300 text-white w-full p-3 font-semibold text-xl cursor-pointer"
-      >
-        Clear All
-      </button>
-    </div>
-  );
+  const [birthdayList, setBirthdayList] = useState(birthdays);
+  return birthdayList.map((id, name, image, age) => {
+    {
+      <BirthdayListItem key={id} id={id} image={image} name={name} age={age} />;
+    }
+  });
 };
 
-const BirthdayListItem = ({ name, age, image }) => {
+const BirthdayListItem = ({ id, name, age, image }) => {
   return (
-    <div className="flex gap-4 items-center w-134">
-      <img className="w-20 h-20 rounded-full" src={image} alt="profile" />
-      <div>
-        <h2 className="text-2xl font-bold">{name}</h2>
-        <p className="text-gray-500">{age}</p>
-      </div>
+    <div>
+      <img src={image} alt="frofile" />
+      <h1>{name}</h1>
+      <p>{age}</p>
     </div>
   );
 };
